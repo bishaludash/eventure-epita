@@ -1,0 +1,37 @@
+User
+- id
+- email
+- fname
+- lname
+- password
+- createdAt
+- updatedAt
+- role
+
+Events
+- id
+- name
+- eventDate
+- location
+- description
+- Manager
+- createdAt
+- updatedAp
+
+Participants
+- id
+- eventId
+- userId
+- status
+
+Role
+- id
+- roleName
+
+Tasks
+- id
+- eventId
+- taskName
+- description
+- deadline
+- assigneId
