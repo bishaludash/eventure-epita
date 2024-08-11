@@ -5,6 +5,7 @@ import com.bishal.eventure.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,6 +17,7 @@ public class TaskService {
 //    CRUD
     public Task addTask(Task task){
         task.setTaskId(UUID.randomUUID().toString().split("-")[0]);
+        task.setCreatedAt(LocalDateTime.now());
         return repository.save(task);
     }
 
@@ -27,16 +29,13 @@ public class TaskService {
         return  repository.findById(taskId).get();
     }
 
-    public List<Task> getTaskByServerity(int serverity){
-        return repository.findByServerity(serverity);
-    }
-
     public Task updateTask(Task task){
         Task existingTask = repository.findById(task.getTaskId()).get();
+        existingTask.setEventId(task.getTaskName());
+        existingTask.setTaskName(task.getTaskName());
         existingTask.setDescription(task.getDescription());
-        existingTask.setServerity(task.getServerity());
+        existingTask.setDeadlineAt(task.getDeadlineAt());
         existingTask.setAssignee(task.getAssignee());
-        existingTask.setStoryPoints(task.getStoryPoints());
 
         return repository.save(existingTask);
     }
