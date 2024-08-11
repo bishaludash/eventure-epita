@@ -5,8 +5,7 @@ import com.bishal.eventure.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 import java.util.List;
 
@@ -19,16 +18,15 @@ public class UserController {
     private UserService service;
 
     // Assume PasswordEncoder bean is available or inject it
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public User createUser(@RequestBody User user) {
         // Hash the password
-        String hashedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(hashedPassword);
-        
+        //String hashedPassword = passwordEncoder.encode(user.getPassword());
+        //user.setPassword(hashedPassword);
+
         // Call the service to add the user
         return service.addUser(user);
     }
