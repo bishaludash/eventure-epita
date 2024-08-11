@@ -27,7 +27,7 @@ public class RoleController {
         return service.findAllRoles();
     }
 
-    @GetMapping("/{taskId}")
+    @GetMapping("/{id}")
     public Role getAllRole(@PathVariable String id){
         return service.getRoleById(id);
     }
@@ -37,7 +37,7 @@ public class RoleController {
         return service.updateRole(role);
     }
 
-    @DeleteMapping("/{taskId}")
+    @DeleteMapping("/{id}")
     public String deleteTole(@PathVariable String id){
         return service.deleteRole(id);
     }
