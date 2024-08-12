@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class Event {
     @Id
     private String id;
-    private String name;
+    private String eventName;
     private LocalDateTime eventDate;
     private String location;
     private String description;

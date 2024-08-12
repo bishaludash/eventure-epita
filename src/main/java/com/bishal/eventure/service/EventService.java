@@ -31,7 +31,7 @@ public class EventService {
     public Event updateEvent(Event event) {
         Event existingEvent = repository.findById(event.getId()).orElse(null);
         if (existingEvent != null) {
-            existingEvent.setName(event.getName());
+            existingEvent.setEventName(event.getEventName());
             existingEvent.setEventDate(event.getEventDate());
             existingEvent.setLocation(event.getLocation());
             existingEvent.setDescription(event.getDescription());
