@@ -18,7 +18,9 @@ public class Participant {
     @Id
     private String id;
     private String eventId;
+    private String eventName;
     private String userId;
+    private String userName;
     private String status;
 
     @CreatedDate
